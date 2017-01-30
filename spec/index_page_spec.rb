@@ -5,7 +5,7 @@ describe IndexPage do
   let(:index_page) { IndexPage.new(works) }
 
   context 'given valid works' do
-    let(:works) { Oga.parse_xml(File.open('spec/fixtures/works.xml')) }
+    let(:works) { Oga.parse_xml(File.open('spec/fixtures/works.xml')).css('works work') }
     let(:expected_result) { File.read('spec/fixtures/expected_index_page.html') }
 
     it 'should generate a valid index page' do

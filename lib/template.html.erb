@@ -17,7 +17,9 @@
     </nav>
   </header>
 
-  {{ THUMBNAIL IMAGES GO HERE }}
+<% thumbnails.each do |thumbnail| %>
+  <img src="<%= thumbnail[:src] %>" alt="<%= thumbnail[:alt] %>" />
+<% end %>
 </body>
 </html>
 

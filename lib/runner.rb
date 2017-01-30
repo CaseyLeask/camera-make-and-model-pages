@@ -15,7 +15,7 @@ class Runner
 
   def run!
     document = Oga.parse_xml(Net::HTTP.get(api_url))
-    works = document.xpath('works/work')
+    works = document.css('works work')
 
     put works
   end
