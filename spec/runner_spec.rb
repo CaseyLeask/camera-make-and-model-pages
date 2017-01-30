@@ -13,21 +13,21 @@ describe Runner do
     end
 
     context 'with one value' do
-      let(:argv) { [ '' ] }
+      let(:argv) { [''] }
       it 'should raise an error' do
         expect { runner }.to raise_error(ArgumentError)
       end
     end
 
     context 'with three values' do
-      let(:argv) { [ '', '', '' ] }
+      let(:argv) { ['', '', ''] }
       it 'should raise an error' do
         expect { runner }.to raise_error(ArgumentError)
       end
     end
 
     context 'with api_url and output_directory' do
-      let(:argv) { [ api_url, output_directory ] }
+      let(:argv) { [api_url, output_directory] }
       let(:api_url) { 'https://example.com/api' }
       let(:output_directory) { '.' }
 
