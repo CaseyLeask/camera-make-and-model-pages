@@ -9,6 +9,7 @@ class IndexPage
     erb_binding = binding
     erb_binding.local_variable_set(:title, 'works')
     erb_binding.local_variable_set(:thumbnails, thumbnails)
+    erb_binding.local_variable_set(:makes, makes)
     ERB.new(File.read('lib/template.html.erb'), 0, '>').result(erb_binding)
   end
 
@@ -19,5 +20,11 @@ class IndexPage
         alt: work.css('filename').text
       }
     end
+  end
+
+  def makes
+    @works.map do |work|
+      work.css('make').text
+    end.uniq.reject(&:empty?)
   end
 end

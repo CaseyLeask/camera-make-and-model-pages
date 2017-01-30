@@ -13,7 +13,11 @@
     <h1><%= title %></h1>
 
     <nav>
-      {{ NAVIGATION GOES HERE }}
+      <ul>
+<% makes.each do |make| %>
+        <li><a href="/<%= ERB::Util.url_encode(make) %>"><%= make %></a></li>
+<% end %>
+      </ul>
     </nav>
   </header>
 
