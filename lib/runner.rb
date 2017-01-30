@@ -1,4 +1,6 @@
 require 'uri'
+require 'net/http'
+require 'oga'
 
 class Runner
   attr_accessor :api_url, :output_directory
@@ -9,5 +11,12 @@ class Runner
 
     Dir.mkdir(argv[1]) unless Dir.exist?(argv[1])
     @output_directory = Dir.new(argv[1])
+  end
+
+  def run!
+    document = Oga.parse_xml(Net::HTTP.get(api_url))
+    works = document.xpath('works/work')
+
+    put works
   end
 end
