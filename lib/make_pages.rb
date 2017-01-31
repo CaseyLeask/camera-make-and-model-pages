@@ -14,7 +14,7 @@ class MakePages
         thumbnails: thumbnails(make),
         navigation: navigation(make)
       }
-      collection[make] = Template.generate(template, template_values)
+      collection[ERB::Util.url_encode(make)] = Template.generate(template, template_values)
 
       collection
     end

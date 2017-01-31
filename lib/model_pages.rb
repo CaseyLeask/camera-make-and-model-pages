@@ -14,7 +14,7 @@ class ModelPages
         thumbnails: thumbnails(model),
         navigation: navigation(model)
       }
-      collection[model] = Template.generate(template, template_values)
+      collection[ERB::Util.url_encode(model)] = Template.generate(template, template_values)
 
       collection
     end

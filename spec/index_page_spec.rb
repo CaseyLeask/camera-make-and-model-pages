@@ -13,7 +13,7 @@ describe IndexPage do
       let(:generate) { index_page.generate(template) }
 
       it 'should give a valid index page' do
-        expect(generate).to eq(expected_result)
+        expect(generate[:index]).to eq(expected_result)
       end
     end
   end

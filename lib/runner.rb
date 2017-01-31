@@ -1,4 +1,5 @@
 require_relative 'parser'
+require_relative 'writer'
 
 # Used to separate argument value passing from the application
 class Runner
@@ -15,6 +16,6 @@ class Runner
   def run!
     pages = Parser.parse(@api_url)
 
-    pages.each { |_k, page| puts page }
+    Writer.write(pages, @output_directory)
   end
 end
