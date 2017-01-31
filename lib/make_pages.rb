@@ -34,7 +34,7 @@ class MakePages
   end
 
   def navigation(make)
-    home_link = [{ href: '/', text: 'Home' }]
+    home_link = [{ href: 'index.html', text: 'Home' }]
 
     make_links = @works.select { |work| work.css('make').text == make }.map do |work|
       {

@@ -34,7 +34,7 @@ class ModelPages
   end
 
   def navigation(model)
-    home_link = [{ href: '/', text: 'Home' }]
+    home_link = [{ href: 'index.html', text: 'Home' }]
 
     make_links = @works.select { |work| work.css('model').text == model }.map do |work|
       {
