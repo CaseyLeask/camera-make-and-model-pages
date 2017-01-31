@@ -14,7 +14,9 @@ class ModelPages
         thumbnails: thumbnails(model),
         navigation: navigation(model)
       }
-      collection[Template.sanitize_link(model) + '.html'] = Template.generate(template, template_values)
+      filename = Template.sanitize_link(model) + '.html'
+
+      collection[filename] = Template.generate(template, template_values)
 
       collection
     end

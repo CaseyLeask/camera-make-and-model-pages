@@ -14,7 +14,9 @@ class MakePages
         thumbnails: thumbnails(make),
         navigation: navigation(make)
       }
-      collection[Template.sanitize_link(make) + '.html'] = Template.generate(template, template_values)
+      filename = Template.sanitize_link(make) + '.html'
+
+      collection[filename] = Template.generate(template, template_values)
 
       collection
     end
