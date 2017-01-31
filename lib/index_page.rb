@@ -14,7 +14,7 @@ class IndexPage
       navigation: navigation
     }
 
-    { 'index' => Template.generate(template, template_values) }
+    { 'index.html' => Template.generate(template, template_values) }
   end
 
   def thumbnails
@@ -29,7 +29,7 @@ class IndexPage
   def navigation
     links = @works.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('make').text),
+        href: '/' + ERB::Util.url_encode(work.css('make').text) + '.html',
         text: work.css('make').text
       }
     end

@@ -14,7 +14,7 @@ class MakePages
         thumbnails: thumbnails(make),
         navigation: navigation(make)
       }
-      collection[ERB::Util.url_encode(make)] = Template.generate(template, template_values)
+      collection[ERB::Util.url_encode(make) + '.html'] = Template.generate(template, template_values)
 
       collection
     end
@@ -38,7 +38,7 @@ class MakePages
 
     make_links = @works.select { |work| work.css('make').text == make }.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('model').text),
+        href: '/' + ERB::Util.url_encode(work.css('model').text) + '.html',
         text: work.css('model').text
       }
     end

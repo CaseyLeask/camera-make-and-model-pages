@@ -9,6 +9,9 @@ require_relative 'model_pages'
 class Writer
   def self.write(pages, output_directory)
     # pages.each { |_k, page| puts page }
-    pages.each { |filename, _page| puts File.expand_path(filename, output_directory) }
+    pages.each do |filename, page|
+      path = File.expand_path(filename, output_directory)
+      File.write(path, page)
+    end
   end
 end

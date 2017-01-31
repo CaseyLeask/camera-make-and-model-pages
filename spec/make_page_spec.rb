@@ -15,7 +15,7 @@ describe MakePages do
       let(:generate) { make_page.generate(template) }
 
       it 'should include a valid nikon page' do
-        expect(generate['NIKON%20CORPORATION']).to eq(nikon)
+        expect(generate['NIKON%20CORPORATION.html']).to eq(nikon)
       end
     end
   end
