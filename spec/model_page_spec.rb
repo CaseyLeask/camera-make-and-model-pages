@@ -7,9 +7,7 @@ describe ModelPages do
 
   context 'given valid works' do
     let(:works) { Oga.parse_xml(File.open('spec/fixtures/works.xml')).css('works work') }
-    let(:nikon) do
-      File.read('spec/fixtures/expected_models/nikonD80.html')
-    end
+    let(:nikon) { File.read('spec/fixtures/expected_models/nikonD80.html') }
 
     context 'calling generate' do
       let(:generate) { make_page.generate(template) }

@@ -7,7 +7,7 @@ describe IndexPage do
 
   context 'given the test sample of valid works' do
     let(:works) { Oga.parse_xml(File.open('spec/fixtures/works.xml')).css('works work') }
-    let(:expected_result) { File.read('spec/fixtures/expected_index_page.html') }
+    let(:expected_result) { File.read('spec/fixtures/index.html') }
 
     context 'calling generate' do
       let(:generate) { index_page.generate(template) }
