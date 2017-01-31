@@ -27,11 +27,13 @@ class IndexPage
   end
 
   def navigation
-    @works.map do |work|
+    links = @works.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('exif make').text),
-        text: work.css('exif make').text
+        href: '/' + ERB::Util.url_encode(work.css('make').text),
+        text: work.css('make').text
       }
-    end.uniq.reject { |link| link[:text].empty? }
+    end
+
+    links.uniq.reject { |link| link[:text].empty? }
   end
 end

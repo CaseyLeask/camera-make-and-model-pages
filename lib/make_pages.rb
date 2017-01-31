@@ -8,7 +8,7 @@ class MakePages
   end
 
   def generate(template)
-    makes.reduce({}) do |collection, make|
+    makes.each_with_object({}) do |make, collection|
       template_values = {
         title: make,
         thumbnails: thumbnails(make),
@@ -21,15 +21,11 @@ class MakePages
   end
 
   def makes
-    @works.map do |work|
-      work.css('make').text
-    end.uniq.reject(&:empty?)
+    @works.map { |work| work.css('make').text }.uniq.reject(&:empty?)
   end
 
   def thumbnails(make)
-    @works.select do |work|
-      work.css('exif make').text == make
-    end.map do |work|
+    @works.select { |work| work.css('make').text == make }.map do |work|
       {
         src: work.css('urls url[type="small"]').text,
         alt: work.css('filename').text
@@ -38,13 +34,15 @@ class MakePages
   end
 
   def navigation(make)
-    @works.select do |work|
-      work.css('make').text == make
-    end.map do |work|
+    home_link = [{ href: '/', text: 'Home' }]
+
+    make_links = @works.select { |work| work.css('make').text == make }.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('exif model').text),
-        text: work.css('exif model').text
+        href: '/' + ERB::Util.url_encode(work.css('model').text),
+        text: work.css('model').text
       }
-    end.unshift({href: '/', text: 'Home'})
+    end
+
+    home_link + make_links
   end
 end
