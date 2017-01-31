@@ -14,7 +14,7 @@ class MakePages
         thumbnails: thumbnails(make),
         navigation: navigation(make)
       }
-      collection[ERB::Util.url_encode(make) + '.html'] = Template.generate(template, template_values)
+      collection[Template.sanitize_link(make) + '.html'] = Template.generate(template, template_values)
 
       collection
     end

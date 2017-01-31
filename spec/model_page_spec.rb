@@ -15,7 +15,7 @@ describe ModelPages do
       let(:generate) { make_page.generate(template) }
 
       it 'should include a valid nikon D80 page' do
-        expect(generate['NIKON%20D80.html']).to eq(nikon)
+        expect(generate['NIKOND80.html']).to eq(nikon)
       end
     end
   end
