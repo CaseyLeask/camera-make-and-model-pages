@@ -1,3 +1,4 @@
+require 'erb'
 require_relative 'template'
 
 # All things required to generate the IndexPage
@@ -27,7 +28,10 @@ class IndexPage
 
   def navigation
     @works.map do |work|
-      work.css('make').text
-    end.uniq.reject(&:empty?)
+      {
+        href: '/' + ERB::Util.url_encode(work.css('exif make').text),
+        text: work.css('exif make').text
+      }
+    end.uniq.reject { |link| link[:text].empty? }
   end
 end

@@ -15,7 +15,7 @@
     <nav>
       <ul>
 <% navigation.each do |nav| %>
-        <li><a href="/<%= ERB::Util.url_encode(nav) %>"><%= nav %></a></li>
+        <li><a href="<%= nav[:href] %>"><%= nav[:text] %></a></li>
 <% end %>
       </ul>
     </nav>
