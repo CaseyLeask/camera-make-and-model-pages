@@ -13,4 +13,8 @@ class Template
 
     ERB.new(template, 0, '>').result(erb_binding)
   end
+
+  def self.sanitize_link(link)
+    link.gsub(/\W/, '')
+  end
 end

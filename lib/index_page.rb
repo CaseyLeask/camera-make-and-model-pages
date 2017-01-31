@@ -29,7 +29,7 @@ class IndexPage
   def navigation
     links = @works.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('make').text) + '.html',
+        href: Template.sanitize_link(work.css('make').text) + '.html',
         text: work.css('make').text
       }
     end

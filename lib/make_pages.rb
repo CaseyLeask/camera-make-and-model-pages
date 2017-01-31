@@ -38,7 +38,7 @@ class MakePages
 
     make_links = @works.select { |work| work.css('make').text == make }.map do |work|
       {
-        href: '/' + ERB::Util.url_encode(work.css('model').text) + '.html',
+        href: Template.sanitize_link(work.css('model').text) + '.html',
         text: work.css('model').text
       }
     end
