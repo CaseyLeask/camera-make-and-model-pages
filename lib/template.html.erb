@@ -14,8 +14,8 @@
 
     <nav>
       <ul>
-<% makes.each do |make| %>
-        <li><a href="/<%= ERB::Util.url_encode(make) %>"><%= make %></a></li>
+<% navigation.each do |nav| %>
+        <li><a href="/<%= ERB::Util.url_encode(nav) %>"><%= nav %></a></li>
 <% end %>
       </ul>
     </nav>

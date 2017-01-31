@@ -1,4 +1,4 @@
-require 'erb'
+require_relative 'template'
 
 # All things required to generate the IndexPage
 class IndexPage
@@ -6,12 +6,14 @@ class IndexPage
     @works = works
   end
 
-  def generate
-    erb_binding = binding
-    erb_binding.local_variable_set(:title, 'works')
-    erb_binding.local_variable_set(:thumbnails, thumbnails)
-    erb_binding.local_variable_set(:makes, makes)
-    ERB.new(File.read('lib/template.html.erb'), 0, '>').result(erb_binding)
+  def generate(template)
+    template_values = {
+      title: 'works',
+      thumbnails: thumbnails,
+      navigation: navigation
+    }
+
+    Template.generate(template, template_values)
   end
 
   def thumbnails
@@ -23,7 +25,7 @@ class IndexPage
     end
   end
 
-  def makes
+  def navigation
     @works.map do |work|
       work.css('make').text
     end.uniq.reject(&:empty?)
