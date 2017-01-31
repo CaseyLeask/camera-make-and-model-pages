@@ -1,6 +1,4 @@
-require 'uri'
-require 'net/http'
-require 'oga'
+require_relative 'parser'
 
 # Used to separate argument value passing from the application
 class Runner
@@ -15,9 +13,8 @@ class Runner
   end
 
   def run!
-    document = Oga.parse_xml(Net::HTTP.get(api_url))
-    works = document.css('works work')
+    pages = Parser.parse(@api_url)
 
-    put works
+    pages.each { |_k, page| puts page }
   end
 end

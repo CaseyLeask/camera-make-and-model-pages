@@ -43,6 +43,6 @@ class MakePages
       }
     end
 
-    home_link + make_links
+    home_link + make_links.uniq
   end
 end

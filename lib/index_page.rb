@@ -14,7 +14,7 @@ class IndexPage
       navigation: navigation
     }
 
-    Template.generate(template, template_values)
+    { index: Template.generate(template, template_values) }
   end
 
   def thumbnails
