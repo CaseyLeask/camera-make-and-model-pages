@@ -2,6 +2,7 @@ require 'uri'
 require 'net/http'
 require 'oga'
 
+# Used to separate argument value passing from the application
 class Runner
   attr_accessor :api_url, :output_directory
   def initialize(argv)

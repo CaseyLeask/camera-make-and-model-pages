@@ -1,5 +1,6 @@
 require 'erb'
 
+# All things required to generate the IndexPage
 class IndexPage
   def initialize(works)
     @works = works
