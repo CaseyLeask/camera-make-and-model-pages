@@ -6,7 +6,9 @@ A small service for building camera make and model pages
 
 ### Installing Ruby
 
-There are many ways to install Ruby. I recommend visiting the [Installation page](https://www.ruby-lang.org/en/documentation/installation/) and choosing a way that suits you.
+I've specified Ruby 2.2.4 in the `.ruby-version`, but anything in the 2.2.x range should be fine.
+
+There are many ways to install Ruby. Personally I recommend [rbenv](https://github.com/rbenv/rbenv#readme), but you can visit the [Installation page](https://www.ruby-lang.org/en/documentation/installation/) and choose a way that suits you.
 
 ### Installing Bundler
 
