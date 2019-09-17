@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'parser'
 require_relative 'writer'
 
@@ -6,6 +8,7 @@ class Runner
   attr_accessor :api_url, :output_directory
   def initialize(argv)
     raise ArgumentError unless argv.length == 2
+
     @api_url = URI.parse(argv[0])
     raise URI::InvalidURIError if @api_url.relative?
 

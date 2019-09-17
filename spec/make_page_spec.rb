@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oga'
 require_relative '../lib/make_pages'
 
